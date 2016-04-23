@@ -35,6 +35,11 @@ defmodule ExTwitter.API.Tweets do
     |> ExTwitter.Parser.parse_upload
   end
 
+  def upload_media(media_content,options \\ []) do
+    response = upload(media_content,options)
+    response.media_id
+  end
+
   def retweet(id, options \\ []) do
     params = ExTwitter.Parser.parse_request_params(options)
     request(:post, "1.1/statuses/retweet/#{id}.json", params)

@@ -336,6 +336,7 @@ defmodule ExTwitter do
   @spec update_with_media(String.t, Keyword.t) :: ExTwitter.Model.Tweet.t
   defdelegate update_with_media(status, media_content), to: ExTwitter.API.Tweets
 
+
   @doc """
   POST media/upload
   POST statuses/update
@@ -358,6 +359,9 @@ defmodule ExTwitter do
 
   # GET statuses/oembed
   # https://dev.twitter.com/docs/api/1.1/get/statuses/oembed
+
+  @spec upload_media(Binary.t, Keyword.t) :: ExTwitter.Model.Tweet.t
+  defdelegate upload_media(media_content, options), to: ExTwitter.API.Tweets
 
   @doc """
   GET statuses/retweeters/ids
