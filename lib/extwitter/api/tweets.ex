@@ -36,6 +36,7 @@ defmodule ExTwitter.API.Tweets do
   end
 
   def upload_media(media_content,options \\ []) do
+    media_content = Base.encode64(media_content)
     response = upload(media_content,options)
     response.media_id
   end
